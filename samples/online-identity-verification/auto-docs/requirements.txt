@@ -1,0 +1,50 @@
+```python
+import boto3
+
+ec2 = boto3.resource('ec2')
+
+# Create a new EC2 instance
+instances = ec2.create_instances(
+    ImageId='ami-0747bdcabd34c0ecd',
+    MinCount=1,
+    MaxCount=1,
+    InstanceType='t2.micro',
+    KeyName='my-key-pair'
+)
+```
+
+ここでは、boto3を使ってAWSのEC2インスタンスを作成するPythonコードの例を示しています。
+
+<Template>
+
+## ファイル概要
+
+このコードは、AWS EC2インスタンスを作成するためのPythonスクリプトです。boto3ライブラリを使用しており、Amazon Web Services(AWS)のEC2(Elastic Compute Cloud)サービスとインターフェースを取ります。
+
+## 主要なサブルーチン
+
+- `boto3.resource('ec2')`: EC2リソースへのインターフェースを確立します。戻り値はEC2リソースオブジェクトです。
+- `ec2.create_instances()`: 指定された設定でEC2インスタンスを作成します。引数にImageId(AMI ID)、InstanceType(インスタンスタイプ)、KeyName(キーペア名)などを指定できます。戻り値は作成したインスタンスオブジェクトのリストです。
+
+## データ構造
+
+特に複雑なデータ構造は使用されていません。
+
+## 主要なアルゴリズム
+
+特に複雑なアルゴリズムは使用されていません。
+
+## 入出力
+
+入力: なし(コード内で設定されたインスタンス設定を使用)
+出力: 新しく作成されたEC2インスタンス
+
+## 利用している外部モジュールやライブラリの説明
+
+- boto3: AWSサービスとのインターフェースを提供するPythonライブラリ
+
+## エラー処理の方法
+
+特に明示的なエラー処理は行われていません。boto3ライブラリ内部でエラー処理が行われます。
+
+</Template>

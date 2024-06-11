@@ -1,0 +1,11 @@
+version: 1.0
+runtime: go1
+build:
+  commands:
+    build:
+      - go build main.go
+run:
+  command: ./main
+  network:
+    port: 3000
+    env: APP_PORT

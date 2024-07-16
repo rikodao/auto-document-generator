@@ -1,56 +1,57 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/backend/upload-signed-url/handler.py
+
 <Template>
 ## ファイル概要
 
-このファイルは、Amazon S3 バケットへのアップロード用の事前署名付き URL を生成する AWS Lambda 関数です。boto3 ライブラリを使用して、S3 クライアントを初期化し、指定されたバケット名とキーに基づいて事前署名付き URL を生成しています。また、この関数は環境変数から S3 バケット名を取得し、クエリ文字列パラメータからキーを取得しています。
-
-関連するモジュール: boto3、botocore、json、logging、os
+このファイルは、AWS LambdaでS3プレサイン済みURLを生成するための関数を含んでいます。
+AWSの boto3ライブラリを使用しています。
 
 ## 主要なサブルーチン
 
-### lambda_handler(event, context)
-- 引数:
-  - event: AWS Lambda 呼び出しイベントオブジェクト
-  - context: AWS Lambda コンテキストオブジェクト
-- 戻り値: 事前署名付き URL またはエラーメッセージを含む JSON 応答
-- グローバル変数の使用: logger
-
-この関数は、次の手順を実行します:
-1. S3 クライアントを初期化する
-2. 環境変数から S3 バケット名を取得する
-3. クエリ文字列パラメータからキーを取得する
-4. オブジェクトキーを生成する
-5. 事前署名付き URL の有効期限を設定する
-6. s3_client.generate_presigned_url() を使用して事前署名付き URL を生成する
-7. 成功した場合は、事前署名付き URL を含む JSON 応答を返す
-8. エラーが発生した場合は、エラーメッセージを含む JSON 応答を返す
+lambda_handler(event, context):
+- AWS Lambdaの実行時に呼び出されるメイン関数
+- クエリ文字列パラメータからキーを取得
+- S3クライアントを初期化し、プレサイン済みURLを生成
+- 成功時にはURLを返し、エラー時には500エラーを返す
 
 ## データ構造
 
-このファイルでは、特定のデータ構造は使用されていません。
+特に複雑なデータ構造は使用されていません。
 
 ## 主要なアルゴリズム
 
-このファイルには、特徴的なアルゴリズムやロジックはありません。
+特に複雑なアルゴリズムは使用されていません。
+boto3のAPIを利用してS3プレサイン済みURLを生成しています。
 
 ## 入出力
 
-- 入力: AWS Lambda 呼び出しイベントオブジェクト
-- 出力: JSON 応答 (事前署名付き URL または エラーメッセージ)
+入力:
+- AWS Lambdaのイベントオブジェクト(クエリ文字列パラメータ)
+
+出力:
+- 成功時: プレサイン済みURLを含むJSONレスポンス
+- エラー時: 500エラーレスポンス
 
 ## 利用している外部モジュールやライブラリの説明
 
-- boto3: AWS SDK for Python。S3 クライアントを初期化し、事前署名付き URL を生成するために使用されます。
-- botocore: AWS SDK for Python の低レベルライブラリ。ClientError 例外をキャッチするために使用されます。
+boto3 (AWS SDKforPython):
+- AWS サービスとやり取りするためのクライアントを提供
+
+botocore.exceptions:
+- AWS SDK例外を扱うためのモジュール
+
+json:
+- JSON形式のデータを扱うためのモジュール
+
+logging:
+- ログ出力を行うためのモジュール
+
+os:
+- 環境変数を取得するために使用
 
 ## エラー処理の方法
 
-ClientError 例外がキャッチされた場合、エラーメッセージを含む JSON 応答と 500 ステータスコードが返されます。
-
-## その他の注意点
-
-- この関数は、環境変数 UPLOAD_BUCKET から S3 バケット名を取得します。
-- 生成されるオブジェクトキーは "upload/" プレフィックスが付加され、".jpg" 拡張子が付加されます。
-- 事前署名付き URL の有効期限はデフォルトで 600 秒 (10 分) に設定されています。
-- CORS (Cross-Origin Resource Sharing) のため、応答ヘッダーに "Access-Control-Allow-Origin": "*" が含まれています。
+ClientErrorの例外をキャッチし、エラーレスポンスを返しています。
+その他の例外は捕捉されずLambdaのデフォルトの動作に従います。
 
 </Template>

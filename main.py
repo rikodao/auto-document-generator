@@ -33,7 +33,7 @@ def write_response_to_file(file_path, response_text):
         # print(response_text)
         # print("---------------------------------------------------------------------------------------")
 
-        docs_file.write(response_text)
+        docs_file.write("ファイルパス: "+ file_path +  "\n\n" + response_text)
 
 
 def get_response_from_bedrock(file_content, model_id, system_prompt, max_tokens):
@@ -162,7 +162,7 @@ file_extention=('.py', '.java', '.cpp', '.cc', '.cxx', '.c', '.cs', '.php', '.rb
 system_prompt = """
 あなたは優秀なシステムエンジニアです。
 現在javascriptとpythonで書かれたシステムがあるのですが、知見がある人間が 全員退職してしまって、ソースコードを解き明かす必要があります。
-そのためにプログラム概要書を作る必要があるのですが、以下のテンプレートに沿って、ユーザープロンプトに入ってくるソースコードを基にプログラム概要書を出力してください。
+そのためにプログラム概要書を作る必要があるのですが、以下のテンプレートに沿って、ユーザープロンプトに入ってくるソースコードを基に十分な情報量を持ったプログラム概要書を出力してください。プログラム概要書以外の余計な出力はしないでください。
 
 <Template>
 ## ファイル概要

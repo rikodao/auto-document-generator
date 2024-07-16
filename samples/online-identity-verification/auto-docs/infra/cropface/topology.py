@@ -1,22 +1,27 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/cropface/topology.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWS CDKを使用して、Amazon S3バケットと顔画像をクロッピングするAWS Lambdaリソースをプロビジョニングするためのコンストラクトを定義しています。
-主に`aws_cdk`、`aws_iam`、`aws_lambda`、`aws_ecr_assets`、`aws_s3`モジュールを利用しています。
+このファイルは、AWS CDKを使ってAWS上にリソースを構築するためのコードです。
+主な機能は以下の通りです:
+
+- S3バケットの作成(識別カード画像用、加工済み顔画像用)
+- Lambda関数の作成(顔画像加工用)
+- S3バケットとLambda関数の連携
+
+aws_cdk、constructs、aws_s3、aws_s3_notifications、aws_iam、aws_lambda、aws_ecr_assetsなどのモジュールをインポートしています。
 
 ## 主要なサブルーチン
 
-### `__init__(self, scope: Construct, id: builtins.str, rfl_stack: IRflStack)`
-- コンストラクタ
-- 引数:
-  - `scope`: コンストラクトのスコープ
-  - `id`: コンストラクトのID
-  - `rfl_stack`: IRflStackインターフェースを実装するスタックインスタンス
-- 以下のリソースを作成します:
-  - 顔画像アップロード用のS3バケット
-  - クロップ済み顔画像用のS3バケット
-  - LambdaExecutionRoleとLambdaの実行ロール
-  - Dockerイメージから作成されたLambda関数
-  - S3バケットからLambda関数へのイベント通知の設定
+CropFace
+- コンストラクタで以下のリソースを作成します:
+    - S3バケット(識別カード画像用)
+    - S3バケット(加工済み顔画像用)
+    - IAMロール(LambdaがECRにアクセスするため)
+    - DockerイメージからLambda関数を作成
+    - LambdaにIAMポリシーをアタッチ
+    - S3バケットとLambda関数を連携
 
 ## データ構造
 
@@ -24,21 +29,24 @@
 
 ## 主要なアルゴリズム
 
-特に複雑なアルゴリズムは使用されていません。
+特徴的なアルゴリズムはありません。
 
 ## 入出力
 
-- 入力: 顔画像をアップロードするS3バケット
-- 出力: クロップされた顔画像を格納するS3バケット
+- 入力: S3バケットに識別カード画像がアップロードされる
+- 出力: 顔部分を切り抜いた画像がS3バケットに出力される
 
 ## 利用している外部モジュールやライブラリの説明
 
-- `aws_cdk`: AWS Cloud Development Kitを提供するモジュール
-- `aws_iam`: AWS IDエントリの作成とアクセス許可の管理
-- `aws_lambda`: AWS Lambdaリソースの作成
-- `aws_ecr_assets`: AWS ECRからDockerイメージをプルするための機能
-- `aws_s3`: Amazon S3バケットのリソース作成
+- aws_cdk: AWS Cloud Development Kitを使ってAWS上のリソースを定義
+- aws_s3: S3バケットを作成するため
+- aws_lambda: Lambda関数を作成するため
+- aws_ecr_assets: ECRからDockerイメージを取得するため
+- aws_iam: IAMロールを作成するため
 
 ## エラー処理の方法
 
-特に明示的なエラー処理はされていません。AWS CDKのデフォルトの動作に従います。
+特にエラー処理のロジックは記載されていません。
+CDKのデプロイ時にエラーが発生した場合はCloudFormationのイベントでエラー内容を確認する必要があります。
+
+</Template>

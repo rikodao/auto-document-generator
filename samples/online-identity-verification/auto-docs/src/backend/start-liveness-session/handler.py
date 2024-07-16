@@ -1,27 +1,29 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/backend/start-liveness-session/handler.py
+
+```python
 <Template>
 ## ファイル概要
 
-このファイルは、Amazon Rekognition サービスの Face Liveness 機能を利用するための Lambda 関数です。
-主な機能は、新しい Face Liveness セッションを作成することです。
-boto3 (AWS SDK for Python) とロギングモジュールを使用しています。
+このファイルは、Amazon Rekognition サービスを使用して顔の生存性検出セッションを作成するためのものです。
+boto3 パッケージと logging モジュールを使用しています。
 
 ## 主要なサブルーチン
 
 ### create_session()
-- Face Liveness セッションを作成し、セッション ID を返します。
+- 機能: Amazon Rekognition の create_face_liveness_session() API を呼び出して、生存性検出セッションを作成します。
 - 引数: なし
 - 戻り値: セッション ID (文字列)
-- グローバル変数: rek_client (Rekognition クライアント)、logger (ロガー)
-- 例外処理: AccessDeniedException、InternalServerError、InvalidParameterException、ThrottlingException、ProvisionedThroughputExceededException
+- グローバル変数の使用: rek_client、logger
 
 ### lambda_handler(event, context)
-- Lambda 関数のメインハンドラー
-- 引数: event (Lambda 呼び出しイベントデータ)、context (Lambda コンテキストオブジェクト)
-- 戻り値: セッション ID を含む JSON レスポンス
+- 機能: AWS Lambda 関数のエントリポイントです。create_session() 関数を呼び出し、その結果をレスポンスとして返します。
+- 引数: event (dict)、context (object)
+- 戻り値: レスポンス (dict)
+- グローバル変数の使用: なし
 
 ## データ構造
 
-- FaceLivenessError: 独自の例外クラス
+特になし
 
 ## 主要なアルゴリズム
 
@@ -29,25 +31,33 @@ boto3 (AWS SDK for Python) とロギングモジュールを使用していま�
 
 ## 入出力
 
-- 入力: なし
-- 出力: セッション ID を含む JSON レスポンス
+入力:
+- なし
+
+出力:
+- レスポンス (dict): statusCode (int)、sessionId (str)
+
+外部サービスアクセス:
+- Amazon Rekognition サービス
 
 ## 利用している外部モジュールやライブラリの説明
 
 - boto3: AWS SDK for Python
-- os: オペレーティングシステム関連の操作
-- logging: ロギング機能
+- os: オペレーティングシステムに依存する機能を利用するためのモジュール
+- logging: ログ出力を行うためのモジュール
 
 ## エラー処理の方法
 
-create_session() 関数内で、以下の例外を捕捉し、FaceLivenessError 例外をスローします。
+Amazon Rekognition の API から発生する可能性のある例外をキャッチし、カスタム例外 FaceLivenessError を送出しています。
+
 - AccessDeniedException
 - InternalServerError
 - InvalidParameterException
 - ThrottlingException
 - ProvisionedThroughputExceededException
 
-## その他
+その他の制約条件や前提条件:
+- FACELIVENESS_BUCKET 環境変数が設定されている必要があります。
 
-- 環境変数 'FACELIVENESS_BUCKET' を参照しますが、この例では使用されていません。
 </Template>
+```

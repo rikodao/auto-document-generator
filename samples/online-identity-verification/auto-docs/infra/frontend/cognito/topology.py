@@ -1,44 +1,39 @@
-**ファイル概要**
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/frontend/cognito/topology.py
 
-このファイルは、AWS CDK (Cloud Development Kit) を使用して、Amazon Cognito のユーザープールとアイデンティティプールを作成するためのコンストラクトを定義しています。Amazon Cognito は、AWS が提供するユーザー認証およびアクセス管理サービスです。
+<Template>
+## ファイル概要
 
-関連するモジュールやパッケージ:
-- `constructs`
-- `aws_cdk`
-- `aws_iam`
-- `aws_cognito`
+このファイルは、AWS Cloud Development Kit (CDK) を使用して Cognito ユーザープール、IdentityPool、および関連するリソースを作成するためのコンストラクトを定義しています。
+aws_cdk、aws_iam、aws_cognito などの AWS CDK モジュールを利用しています。
 
-**主要なサブルーチン**
+## 主要なサブルーチン
 
-1. `__init__` メソッド
-   - 引数: `scope`, `id`, `rfl_stack`
-   - 機能: コンストラクトのインスタンスを初期化し、Cognito のユーザープール、ユーザープールクライアント、アイデンティティプールを作成します。また、認証されていないユーザーに対するIAMロールを作成し、Rekognitionサービスへのアクセス権を付与します。
-   - グローバル変数の使用: なし
+- `__init__` メソッド: FaceLivenessCognito クラスのコンストラクタです。引数として Construct オブジェクトと IRflStack オブジェクトを受け取ります。ユーザープール、クライアント、IdentityPool、IAM ロール、およびアウトプットを作成します。
 
-**データ構造**
+## データ構造
 
-特に複雑なデータ構造は使用されていません。
+- `cognito.UserPool`: Cognito ユーザープールを表すオブジェクト
+- `cognito.UserPoolClient`: Cognito ユーザープールクライアントを表すオブジェクト
+- `cognito.CfnIdentityPool`: Cognito IdentityPool を表す CloudFormation リソース
+- `iam.Role`: 非認証ユーザーに関連付けられた IAM ロール
 
-**主要なアルゴリズム**
+## 主要なアルゴリズム
 
-特徴的なアルゴリズムやロジックはありません。
+特に複雑なアルゴリズムはありません。AWS CDK を利用してリソースを定義し、設定しています。
 
-**入出力**
+## 入出力
 
-入出力ファイルはありません。
-AWS のリソース (Cognito のユーザープール、アイデンティティプール、IAM ロール) を作成します。
+入力: なし
+出力: Cognito リソースの ID をスタックアウトプットとして出力します。
 
-**利用している外部モジュールやライブラリの説明**
+## 利用している外部モジュールやライブラリの説明
 
-- `aws_cdk`: AWS Cloud Development Kit のモジュール
-- `aws_iam`: AWS Identity and Access Management のモジュール
-- `aws_cognito`: Amazon Cognito のモジュール
+- `aws_cdk`: AWS Cloud Development Kit のコアモジュール
+- `aws_iam`: AWS Identity and Access Management (IAM) リソースを定義するためのモジュール
+- `aws_cognito`: AWS Cognito リソースを定義するためのモジュール
 
-**エラー処理の方法**
+## エラー処理の方法
 
-特別なエラー処理は行われていません。AWS CDK によってリソースの作成がハンドリングされます。
+特別なエラー処理はありません。AWS CDK のデフォルトのエラー処理に従います。
 
-**その他の制約条件や前提条件**
-
-- AWS アカウントが必要
-- AWS CDK がインストールされている必要があります
+</Template>

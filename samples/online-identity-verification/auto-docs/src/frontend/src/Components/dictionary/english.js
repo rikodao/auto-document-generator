@@ -1,27 +1,36 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/src/Components/dictionary/english.js
+
+```js
+<Template>
 ## ファイル概要
 
-このファイルは、顔認証システムのユーザーインターフェースに表示されるテキストを定義するためのオブジェクトを提供しています。デフォルトのエラーメッセージを含む `defaultErrorDisplayText` モジュールをインポートしています。
+このコードは、LivenessCheckコンポーネントで表示されるテキストのデフォルト値を提供するオブジェクトを定義しています。
+defaultErrorDisplayTextモジュールからエラー表示のデフォルトテキストをインポートしています。
 
 ## 主要なサブルーチン
 
-このファイルには関数は含まれていません。
+該当なし。このファイルではサブルーチンは定義されていません。
 
 ## データ構造
 
-`defaultLivenessDisplayText` オブジェクトは、キーと値のペアで構成されたJavaScriptオブジェクトです。キーは文字列で、値は文字列またはオブジェクトです。最後の行で `defaultErrorDisplayText` オブジェクトをマージしています。
+defaultLivenessDisplayTextオブジェクトは、キーと値のペアで構成されています。
+キーは文字列で、値は文字列または別のオブジェクトです。
 
 ## 主要なアルゴリズム
 
-特筆すべきアルゴリズムはありません。
+該当なし。特別なアルゴリズムは使用されていません。
 
 ## 入出力
 
-このファイルは他のモジュールからインポートされる想定です。外部からの入力はありません。
+入力: defaultErrorDisplayText.js
+出力: defaultLivenessDisplayTextオブジェクト
 
 ## 利用している外部モジュールやライブラリの説明
 
-`./defaultErrorDisplayText.js` モジュールをインポートしています。デフォルトのエラーメッセージを提供するものと思われます。
+defaultErrorDisplayText.js : エラー表示のデフォルトテキストを提供するモジュール
 
 ## エラー処理の方法
 
-エラー処理の方法は記述されていません。
+特別なエラー処理は行われていません。
+</Template>
+```

@@ -1,47 +1,60 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/backend/liveness-session-result/handler.py
+
+```python
+<Template>
 ## ファイル概要
 
-このファイルは、Amazon Rekognition FaceLivenessDetectionのセッション結果を取得し、処理するためのLambda関数です。
-主に利用しているサービスはAmazon Rekognition、Amazon S3です。
+このファイルはAWS Lambda関数として実行され、Amazon RekognitionのFace Liveness検出機能を利用しています。
+Face Livenessとは、顔画像が本物の人物のものであるかを判定する機能です。
+boto3ライブラリを使用してAWS RekognitionおよびS3にアクセスしています。
 
 ## 主要なサブルーチン
 
 ### get_session_results(event)
-- Amazon Rekognition FaceLivenessDetectionのセッション結果を取得する
-- 引数: event (セッションIDを含むdict)
-- 戻り値: セッション結果(dict)
-- グローバル変数: rek_client (Rekognitionクライアント)、s3_client (S3クライアント)
+- 引数: event (dict) - セッションIDを含むイベントデータ
+- 戻り値: Rekognition Face Liveness検出の結果
+- 機能: Face Livenessセッションの結果を取得し、リファレンス画像をS3にアップロードします。
+- グローバル変数: rek_client, s3_client, logger
 
 ### lambda_handler(event, context)
-- Lambda関数のハンドラー
-- get_session_resultsの結果を返す
-- 引数: event (セッションIDを含むdict)、context (LambdaContextオブジェクトInfo)
-- 戻り値: ステータスコード200とセッション結果をbodyに含むdict
+- 引数: event (dict), context (dict) - Lambda関数の標準引数
+- 戻り値: Face Liveness検出結果を含む応答オブジェクト
+- 機能: get_session_resultsを呼び出し、その結果を返します。
 
 ## データ構造
 
-- event (dict): セッションIDを含む
-- 応答 (dict): Rekognitionからの応答データ
+このファイルでは独自のデータ構造は定義されていません。
+Rekognitionの応答データはdictで表現されています。
 
 ## 主要なアルゴリズム
 
-- get_session_resultsでRekognitionのセッション結果を取得
-- 参照画像をS3にアップロードし、Base64エンコーディング
+特別な独自のアルゴリズムは実装されていません。
+Face Livenessの検出はAWS Rekognitionサービスに委ねられています。
 
-## 入出力  
+## 入出力
 
-- 入力: LambdaのイベントからセッションID
-- 出力: セッション結果(dict)
-- S3バケット: 環境変数FACELIVENESS_BUCKETで指定されたバケットに参照画像をアップロード
+入力:
+- Lambdaのイベントオブジェクト(dict) - Face Livenessセッション IDを含む
+
+出力:
+- Lambdaの応答オブジェクト(dict) - Face Liveness検出結果を含む
+
+データベース:
+- S3バケット - リファレンス画像をアップロードするために使用
 
 ## 利用している外部モジュールやライブラリの説明
 
-- boto3: AWS SDKライブラリ(Rekognition、S3の操作に使用)
-- io: バイトストリームの操作に使用  
-- os: 環境変数の取得に使用
-- sys: コマンドライン引数の取得に使用
-- base64: 画像データのBase64エンコーディングに使用
-- logging: ログ出力に使用
+boto3 - AWS SDKのPythonラッパー
+io - バイトストリームの操作
+os - オペレーティングシステム機能にアクセス
+sys - インタープリタの機能にアクセス 
+base64 - Base64エンコーディング/デコーディング
+logging - ログ出力
 
 ## エラー処理の方法
 
-RekognitionのさまざまなException(アクセス拒否、パラメータエラーなど)をキャッチし、FaceLivenessErrorをスローします。
+RekognitionのさまざまなエラーをFaceLivenessErrorとしてラップし、例外処理しています。
+ログ出力にloggerを使用しています。
+
+</Template>
+```

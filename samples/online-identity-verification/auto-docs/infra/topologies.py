@@ -1,23 +1,18 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/topologies.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWSのサービスを使ってRFL (Face Liveness) システムのインフラストラクチャをプロビジョニングするための CDK (Cloud Development Kit) スタックの定義を含んでいます。主な機能は以下の通りです。
+このファイルは、AWS Cloud Development Kit (CDK) を使用して、Face Liveness アプリケーションのインフラストラクチャをデプロイするための CDK スタックを定義しています。主な機能は以下の通りです。
 
-- FaceLiveness (顔認証) サービスのデプロイ
-- CropFace (顔画像の切り出し) サービスのデプロイ 
-- Amazon Cognito を使ったユーザー認証機能の設定
-- フロントエンドWebアプリケーションのデプロイ (AWS Amplify使用)
-
-関連するモジュールやパッケージは、aws_cdk、infra.facelivenessbackend、infra.interfaces、infra.cropface、infra.frontend、infra.frontend.cognito などです。
+- Amazon Cognito ユーザープールの設定
+- Face Liveness バックエンドサービスのデプロイ
+- Face Liveness フロントエンド Web アプリケーションのデプロイ
+- AWS Amplify を使用したフロントエンドビルドとデプロイの管理
 
 ## 主要なサブルーチン
 
-- `__init__`(self, scope: Construct, id: str, rfl_stack_name: str)
-  - スタックの初期化を行います。
-  - 引数にはスコープ、IDおよびスタック名を受け取ります。
-  - CropFace、FaceLiveness、Cognito、フロントエンドアプリのデプロイを行います。
-
-- `rfl_stack_name`
-  - プロパティメソッドで、スタック名を返します。
+- `__init__(self, scope: Construct, id: str, rfl_stack_name: str, **kwargs)` - コンストラクタ。引数には CDK スコープ、ID、スタック名が渡されます。
 
 ## データ構造
 
@@ -25,21 +20,23 @@
 
 ## 主要なアルゴリズム
 
-特徴的なアルゴリズムはありません。
+特筆すべきアルゴリズムはありません。
 
 ## 入出力
 
-入力や出力ファイルは使用されていません。AWS のサービスにデプロイを行います。
+入力ファイルや出力ファイルはありません。
 
 ## 利用している外部モジュールやライブラリの説明
 
-- aws_cdk: AWS Cloud Development Kitのモジュール
-- infra.facelivenessbackend.topology: FaceLivenessサービスを定義するモジュール
-- infra.interfaces: インターフェース定義モジュール
-- infra.cropface.topology: CropFaceサービスを定義するモジュール  
-- infra.frontend.topology: フロントエンドアプリケーションを定義するモジュール
-- infra.frontend.cognito.topology: Cognitoユーザー認証を定義するモジュール
+- `aws_cdk` - AWS Cloud Development Kit
+- `infra.facelivenessbackend.topology` - Face Liveness バックエンドサービスのデプロイ用モジュール
+- `infra.interfaces` - インターフェース定義モジュール
+- `infra.cropface.topology` - Crop Face サービスのデプロイ用モジュール
+- `infra.frontend.topology` - Face Liveness フロントエンド Web アプリケーションのデプロイ用モジュール
+- `infra.frontend.cognito.topology` - Amazon Cognito ユーザープールの設定用モジュール
 
 ## エラー処理の方法
 
-特別なエラー処理は行われていません。
+特別なエラー処理は実装されていません。
+
+</Template>

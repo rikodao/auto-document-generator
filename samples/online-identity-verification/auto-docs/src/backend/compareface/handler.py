@@ -1,58 +1,51 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/backend/compareface/handler.py
+
 ```python
 <Template>
 ## ファイル概要
 
-このファイルはAWS LambdaのPython関数で、顔認識サービスAWS Rekognitionを使って2つの顔画像を比較し、類似度スコアを返す役割を持つ。
-関連するAWSサービスはS3、Rekognitionが使われている。
+このファイルは、AWS Lambdaファンクションとしてデプロイされることを目的としています。
+主な機能は、AWSのRekognitionサービスを使用して、2つの画像の類似度を比較することです。
+AWS SDK for Python (Boto3)、osモジュール、jsonモジュールをインポートしています。
 
 ## 主要なサブルーチン
 
-1. S3Manager.generate_presigned_url(key)
-  - 引数: key (str) - S3オブジェクトのキー
-  - 戻り値: (str) - 署名付きURLまたはNone
-  - S3オブジェクトの署名付き一時URLを生成する
+### S3Manager
+- __init__(self): S3バケット名を環境変数から取得し、S3クライアントを初期化します。
+- generate_presigned_url(self, key): 指定されたS3オブジェクトの事前署名付きURLを生成します。
 
-2. RekognitionManager.compare_faces(sessionid, similarity_threshold=50)
-  - 引数: sessionid (str) - セッションID, similarity_threshold (int) - 類似度スレショルド 
-  - 戻り値: (dict) - Rekognitionの比較結果またはNone
-  - 2つの顔画像をRekognitionで比較し、類似度スコアを含む結果を返す
+### RekognitionManager 
+- __init__(self): Rekognitionクライアントを初期化し、S3バケット名を環境変数から取得します。
+- compare_faces(self, sessionid, similarity_threshold=50): 2つの画像のフェイス比較を行い、結果を返します。
 
-3. lambda_handler(event, context)
-  - 引数: event (dict) - Lambda呼び出しイベント, context (dict) - Lambda呼び出しコンテキスト
-  - 戻り値: (dict) - APIGatewayの応答
-  - メイン関数。セッションIDからS3の画像URLを取得し、Rekognitionで比較、結果を返す
+### lambda_handler(event, context)
+- メインの関数で、APIゲートウェイからのリクエストを処理します。
+- 事前署名付きURLの生成、フェイス比較を行い、結果をJSONで返します。
 
 ## データ構造
 
-特になし
+特にデータ構造はありません。
 
-## 主要なアルゴリズム  
+## 主要なアルゴリズム
 
-特になし
+特徴的なアルゴリズムはありません。AWSのRekognitionサービスを利用しています。
 
 ## 入出力
 
-- 入力: AWS Lambda呼び出しイベントからクエリ文字列のセッションIDを取得
-- 出力: APIGatewayレスポンス (JSON形式)
-  - croppedImage: 顔画像のS3署名付きURL  
-  - similarityScore: 類似度スコア (0-100)
+- 入力: APIゲートウェイからのリクエストパラメータ(key)
+- 出力: JSONレスポンス(croppedImage、similarityScore)
+- S3バケットから画像を読み込み、Rekognitionサービスを介してフェイス比較を行います。
 
 ## 利用している外部モジュールやライブラリの説明
 
-- boto3: AWS SDKライブラリ。S3、Rekognitionにアクセスするため使用
-- os: 環境変数を取得するため使用  
-- json: JSON形式のレスポンスを生成するため使用
-- logging: ロギングするため使用
+- boto3: AWS SDKをPythonから利用するためのライブラリ
+- os: 環境変数の読み取りに使用
+- json: JSONデータの処理に使用
+- logging: ログ出力に使用
 
 ## エラー処理の方法
 
-- S3の署名付きURLの生成に失敗した場合、例外を送出
-- Rekognitionの顔比較に失敗した場合、例外を送出
-- Lambda内でキャッチされた例外はAPIGatewayレスポンスの'error'キーに格納される
-
-## その他
-
-特になし
-
+主にtry-exceptブロックを使用して、予期せぬエラーが発生した場合にエラーメッセージを返します。
+エラー時には500エラーコードを返します。
 </Template>
 ```

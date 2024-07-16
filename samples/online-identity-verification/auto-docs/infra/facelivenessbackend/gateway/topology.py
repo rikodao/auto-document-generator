@@ -1,52 +1,48 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/facelivenessbackend/gateway/topology.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWS CDKを使って顔認証APIのためのAPI Gatewayリソースを定義しています。
-主な関連モジュールは `aws_cdk`、`aws_iam`、`aws_apigateway`、`aws_ssm`、`constructs` です。
+このファイルはAWS CDKを使って、API Gatewayを介して顔認証サービスにアクセスするためのリソースを定義しています。
+aws_cdk、aws_iam、aws_apigateway、aws_ssmモジュールがインポートされています。
 
 ## 主要なサブルーチン
 
-### `__init__`
-- コンストラクタ
-- API Gatewayとそのための実行ロールを作成します
-
-### `rest_api_url`
-- API Gatewayの URL を返します
-
-### `bind_upload_signed_url`
-- アップロード用の署名付き URL を取得する API を設定します
-
-### `bind_start_liveness_session` 
-- 顔認証セッションを開始する API を設定します  
-
-### `bind_liveness_session_result`
-- 顔認証セッション結果を取得する API を設定します
-
-### `bind_get_compareface_result`
-- 顔比較結果を取得する API を設定します
-
-### `__bind_lambda_function`
-- 共通の Lambda 統合ロジックをカプセル化したプライベート関数です
+- __init__(self, scope, id, rfl_stack): コンストラクタ。API Gatewayとそれに紐づくIAMロールを初期化します。
+- rest_api_url(self): API Gatewayの URL を返します。
+- bind_upload_signed_url(self, functions): アップロードする画像の署名付き URL を取得するためのAPIリソースを設定します。
+- bind_start_liveness_session(self, functions): 顔認証セッションを開始するためのAPIリソースを設定します。
+- bind_liveness_session_result(self, functions): 顔認証セッションの結果を取得するためのAPIリソースを設定します。
+- bind_get_compareface_result(self, functions): 顔比較の結果を取得するためのAPIリソースを設定します。
+- __bind_lambda_function(self, resource_name, function, integration_http_method, proxy=False): Lambda関数をAPIリソースにバインドするための内部メソッド。
 
 ## データ構造
 
-特に複雑なデータ構造は使われていません。
+特になし
 
 ## 主要なアルゴリズム
 
-特徴的なアルゴリズムはありません。
+特になし
 
 ## 入出力
 
-REST API を介して入出力が行われます。入力はリクエストボディやクエリ文字列パラメータ、出力は JSON 形式のレスポンスです。
+API Gateway経由で以下のリソースにアクセスできます。
+- /uploadsignedurl (GET): 画像のアップロード用の署名付きURLを取得
+- /createfacelivenesssession (GET): 顔認証セッションを開始
+- /getfacelivenesssessionresults (POST): 顔認証セッションの結果を取得
+- /getcomparefaceresult (GET): 顔比較の結果を取得
 
 ## 利用している外部モジュールやライブラリの説明
 
-- `aws_cdk`: AWS Cloud Development Kitのコアモジュール
-- `aws_iam`: IAMロールやポリシーを定義するモジュール  
-- `aws_apigateway`: API Gatewayリソースを定義するモジュール
-- `aws_ssm`: Systems ManagerパラメータストアAPIを操作するモジュール
-- `constructs`: CDKアプリの基底クラス
+- aws_cdk: AWS Cloud Development Kitライブラリ
+- aws_iam: AWS Identity and Access Management (IAM) サービスを操作するためのライブラリ
+- aws_apigateway: AWS API Gatewayサービスを操作するためのライブラリ
+- aws_ssm: AWS Systems Manager (SSM) サービスを操作するためのライブラリ
 
 ## エラー処理の方法
 
-API Gateway の統合レスポンスで 500 エラーを処理しています。その他の例外処理は明示的に定義されていません。
+API Gateway側で以下のようなレスポンスを返すよう設定されています。
+- 200: 正常レスポンス
+- 500: エラーレスポンス (application/jsonモデルを使用)
+
+</Template>

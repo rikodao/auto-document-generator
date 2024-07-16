@@ -1,27 +1,35 @@
-## File Overview
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/src/Components/dictionary/spanish.js
 
-This file exports an object called `spanishLivenessDisplayText` which contains various strings used for displaying user interface messages and instructions related to liveness detection in Spanish. It also imports another object called `defaultErrorDisplayText` from a separate file.
+<Template>
+## ファイル概要
 
-## Main Subroutines
+このファイルは、スペイン語のライブネス検証のUI表示テキストをエクスポートしています。
+`defaultErrorDisplayText.js`モジュールからエラーメッセージをインポートしています。
 
-There are no functions or subroutines defined in this file. It is simply an object that contains key-value pairs of strings.
+## 主要なサブルーチン
 
-## Data Structures
+特になし(オブジェクトリテラルの定義のみ)
 
-The `spanishLivenessDisplayText` object is a plain JavaScript object with string properties and values. It does not use any complex data structures.
+## データ構造
 
-## Main Algorithms
+`spanishLivenessDisplayText`オブジェクトは、キーと値のペアで構成されたオブジェクトリテラルです。
+キーは文字列で、値は文字列またはデフォルトエクスポートオブジェクトを参照しています。
 
-There are no algorithms or complex logic in this file.
+## 主要なアルゴリズム
 
-## Input/Output
+特になし
 
-This file does not handle any input or output directly. The strings contained in the `spanishLivenessDisplayText` object are likely used for rendering user interface elements or displaying messages to the user.
+## 入出力
 
-## External Modules/Libraries
+入力: なし
+出力: `spanishLivenessDisplayText`オブジェクトをエクスポートしています。
 
-The file imports the `defaultErrorDisplayText` object from the `./defaultErrorDisplayText.js` file. This imported object is then merged with the `spanishLivenessDisplayText` object using the object spread operator `...`.
+## 利用している外部モジュールやライブラリの説明
 
-## Error Handling
+`defaultErrorDisplayText.js`モジュールから`defaultErrorDisplayText`オブジェクトをインポートしています。
+このオブジェクトには、エラーメッセージが含まれています。
 
-There is no explicit error handling in this file.
+## エラー処理の方法
+
+特になし
+</Template>

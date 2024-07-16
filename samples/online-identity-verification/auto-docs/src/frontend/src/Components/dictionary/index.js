@@ -1,39 +1,39 @@
-```js
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/src/Components/dictionary/index.js
+
+```<Template>
 ## ファイル概要
 
-このファイルは、異なる言語の表示テキストを含むオブジェクトを生成するためのモジュールです。
-`english.js`、`japanese.js`、`spanish.js`モジュールをインポートしています。
+このファイルは、様々な言語のテキストを含む辞書オブジェクトを構築するためのコードです。
+required関数を使用して、他のJavaScriptファイルからデータをインポートしています。
 
 ## 主要なサブルーチン
 
-このファイルには主要なサブルーチンはありません。
-代わりに、`dictionary`オブジェクトを定義し、異なる言語のテキストオブジェクトを組み込んでいます。
+このファイルには主要なサブルーチンはありません。辞書オブジェクトの構築のみを行っています。
 
 ## データ構造
 
-`dictionary`オブジェクト: キーは言語の2文字の略語(`en`、`ja`、`es`)で、値はそれぞれの言語のテキストオブジェクトです。
+dictionary: オブジェクト
+キーは言語コード(en、ja、es)で、値はそれぞれの言語のテキストデータオブジェクトです。
 
 ## 主要なアルゴリズム
 
 特に複雑なアルゴリズムはありません。
-単に、インポートされたオブジェクトを`dictionary`オブジェクトに割り当てています。
 
 ## 入出力
 
 入力:
-- `./english.js`から`defaultLivenessDisplayText`オブジェクトをインポート
-- `./japanese.js`から`japaneseLivenessDisplayText`オブジェクトをインポート
-- `./spanish.js`から`spanishLivenessDisplayText`オブジェクトをインポート
+- ./english.js (defaultLivenessDisplayTextオブジェクト)
+- ./japanese.js (japaneseLivenessDisplayTextオブジェクト)
+- ./spanish.js (spanishLivenessDisplayTextオブジェクト)
 
 出力:
-- `dictionary`オブジェクトをエクスポートします。
+dictionaryオブジェクト
 
 ## 利用している外部モジュールやライブラリの説明
 
-このファイル自体は外部モジュールやライブラリを直接利用していませんが、`english.js`、`japanese.js`、`spanish.js`モジュールに依存しています。
+モジュールのrequire関数を使用して、他のJavaScriptファイルからデータをインポートしています。
 
 ## エラー処理の方法
 
-特別なエラー処理は行われていません。
-インポートされたモジュールが存在しない場合は、エラーが発生します。
-```
+特にエラー処理は行われていません。
+</Template>```

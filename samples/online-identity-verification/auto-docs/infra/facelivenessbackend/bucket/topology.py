@@ -1,18 +1,21 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/facelivenessbackend/bucket/topology.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWS CDKを使用して、Amazon S3バケットとそのライフサイクルポリシーを定義しています。
-このバケットは、顔認識サービスで使用される顔画像の一時保存に使用されます。
-aws_cdk、constructs、aws_s3モジュールがインポートされています。
+このコードはAWS Cloud Development Kit (CDK)を使用して、Amazon S3バケットを作成し、顔認証システムで使用するためのバケットを設定しています。
+aws_cdk、constructs、infra.facelivenessbackend.functions.definitionsなどのモジュールをインポートしています。
 
 ## 主要なサブルーチン
 
-__init__(self, scope, id, rfl_stack, **kwargs):
-- FaceLivenessBucketSetクラスのコンストラクタ
-- scope、id、rfl_stackを受け取り、S3バケットを作成します
+- __init__(self, scope: Construct, id: str, rfl_stack: IRflStack, **kwargs)
+    - FaceLivenessBucketSetクラスのコンストラクタ
+    - scopeとidはCDKのコンストラクトに渡される引数
+    - rfl_stackはIRflStackインターフェースを実装したオブジェクト
 
 ## データ構造
 
-特に複雑なデータ構造は使用されていません。
+特に明示的なデータ構造はありません。
 
 ## 主要なアルゴリズム
 
@@ -20,22 +23,18 @@ __init__(self, scope, id, rfl_stack, **kwargs):
 
 ## 入出力
 
-入力:
-- なし
-
-出力:
-- Amazon S3バケット
-
-外部モジュールの利用:
-- aws_cdk: AWS CDKの基本モジュール
-- constructs: AWS CDKで使用されるベースクラス
-- aws_s3: Amazon S3リソースを定義するためのモジュール
+- 入力: なし
+- 出力: Amazon S3バケット
 
 ## 利用している外部モジュールやライブラリの説明
 
-aws_cdk、constructs、aws_s3モジュールが使用されています。
-これらのモジュールは、AWS CDKを使ってAWS CloudFormationテンプレートを定義するために使用されます。
+- aws_cdk: AWS Cloud Development Kitライブラリ
+- constructs: CDKで使用されるベースクラス
+- infra.facelivenessbackend.functions.definitions: 顔認証システムの機能定義モジュール
+- infra.interfaces: インターフェースモジュール
 
 ## エラー処理の方法
 
-特別なエラー処理はされていません。
+特別なエラー処理は記述されていません。
+
+</Template>

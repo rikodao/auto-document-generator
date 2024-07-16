@@ -1,38 +1,38 @@
-ここではAWS Amplifyのための設定ファイルが提示されています。
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/src/aws-exports.js
 
 <Template>
 ## ファイル概要
 
-このファイルはAWS AmplifyのJavaScript設定を含んでいます。AmplifyはAWSのクラウドサービスを簡単に利用できるようにするためのライブラリです。
-このファイルは自動的に生成されるため、編集してはいけません。
+このファイルは、AWS Amplifyによって自動生成されたjavascriptファイルです。
+AWSのリソースIDやリージョン情報が設定されています。
 
 ## 主要なサブルーチン
 
-特になし(オブジェクトリテラルを定義しているだけ)
+なし(変数定義のみ)
 
 ## データ構造
 
-awsmobileオブジェクトは以下のプロパティを持つ:
-
+awsmobileオブジェクト
 - aws_project_region: AWSプロジェクトのリージョン
-- aws_cognito_identity_pool_id: Cognito IdentityPoolのID
-- aws_cognito_region: Cognitoのリージョン 
-- aws_user_pools_id: Cognito UserPoolのID
-- aws_user_pools_web_client_id: UserPoolのWebクライアントID
+- aws_cognito_identity_pool_id: CognitoのIdentityプールのID
+- aws_cognito_region: CognitoのリージョンID 
+- aws_user_pools_id: Cognitoのユーザープールのリージョン
+- aws_user_pools_web_client_id: CognitoのWebクライアントID
 
-## 主要なアルゴリズム  
+## 主要なアルゴリズム
 
-特になし
+なし
 
 ## 入出力
 
-これ自体は入出力を行わず、設定値を提供するためのファイルです。
+入力: ReactアプリケーションにてCognitoを利用するための環境変数  
+出力: awsmobileオブジェクト(AWSリソースIDなどが設定された設定オブジェクト)
 
 ## 利用している外部モジュールやライブラリの説明
 
-process.env: Node.jsの環境変数からデータを読み込んでいます。
+なし
 
 ## エラー処理の方法
 
-特になし
+なし
 </Template>

@@ -1,63 +1,52 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/default_lambda.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWS CDK (Cloud Development Kit) を使用して AWS Lambda 関数を定義するための Python クラスを含んでいます。`DefaultFunction` クラスは、Lambda 関数の基本的な構成を提供し、特定のユースケースに合わせてサブクラス化することができます。関連するモジュールには `aws_cdk`、`aws_ec2`、`aws_iam`、`aws_lambda` などがあります。
+このファイルは、AWS CDK (Cloud Development Kit) を使用して、AWS Lambda 関数をデプロイするための Python コードを含んでいます。主な機能は以下の通りです:
+
+- AWS Lambda 関数のデプロイ
+- AWS IAM ロールの作成
+- 共有の依存関係 (requirements.txt) の管理
+- レイヤーを使用した依存関係のインストール
+
+このファイルは、`aws_cdk` および `constructs` ライブラリを使用しています。
 
 ## 主要なサブルーチン
 
-### `__init__`
-- 引数: `scope` (Construct), `id` (str), `rfl_stack` (IRflStack), `env` (Mapping[str,str])
-- 機能: Lambda 関数の設定を初期化します。IAM ロールの作成、Docker イメージからの Lambda 関数の定義、共有の依存関係レイヤーの追加を行います。
-
-### `source_directory`
-- 戻り値: str
-- 機能: Lambda 関数のソースコードディレクトリのパスを返します。サブクラスで実装する必要があります。
-
-### `component_name`
-- 戻り値: str
-- 機能: コンポーネント名を返します。デフォルトではクラス名を返します。
-
-### `function_name`
-- 戻り値: str
-- 機能: Lambda 関数の名前を返します。サブクラスで実装する必要があります。
-
-### `rfl_stack`
-- 戻り値: IRflStack
-- 機能: IRflStack インスタンスを返します。
-
-### `function_timeout`
-- 戻り値: core.Duration
-- 機能: Lambda 関数のタイムアウト時間を返します。デフォルトでは 30 秒です。
-
-### `function`
-- 戻り値: lambda_.IFunction
-- 機能: 定義された Lambda 関数インスタンスを返します。
+### `DefaultFunction` クラス
+- `source_directory` プロパティ: ソースコードのディレクトリパスを返す (実装が必要)
+- `component_name` プロパティ: コンポーネント名を返す
+- `function_name` プロパティ: Lambda 関数名を返す (実装が必要)
+- `rfl_stack` プロパティ: `IRflStack` インスタンスを返す
+- `function_timeout` プロパティ: Lambda 関数のタイムアウト時間を返す
+- `function` プロパティ: `lambda_.IFunction` インスタンスを返す/設定する
+- `__init__` メソッド: コンストラクタ、IAM ロールとLambda 関数を作成する
 
 ## データ構造
 
-- `Mapping[str,str]`: 環境変数を表現するためのデータ構造です。
+特に明示的なデータ構造はありません。
 
 ## 主要なアルゴリズム
 
-特に複雑なアルゴリズムはありませんが、Lambda 関数の設定に関する一般的なロジックが含まれています。
+特徴的なアルゴリズムはありません。
 
 ## 入出力
 
-- 入力: なし
-- 出力: `lambda_.IFunction` インスタンス
-
-外部モジュールの利用:
-- `aws_cdk`: AWS Cloud Development Kit
-- `aws_ec2`: Amazon Elastic Compute Cloud
-- `aws_iam`: AWS Identity and Access Management
-- `aws_lambda`: AWS Lambda
+- 入力: 環境変数、ソースコードディレクトリ、`requirements.txt` ファイル
+- 出力: AWS Lambda 関数、IAM ロール、レイヤー
 
 ## 利用している外部モジュールやライブラリの説明
 
-- `aws_cdk`: AWS CDK は、AWS クラウドリソースをコードで定義し、プロビジョニングするためのフレームワークです。
-- `aws_ec2`: Amazon EC2 リソースを定義するためのモジュールです。
-- `aws_iam`: AWS ID およびアクセス管理 (IAM) リソースを定義するためのモジュールです。
-- `aws_lambda`: AWS Lambda 関数を定義するためのモジュールです。
+- `aws_cdk`: AWS Cloud Development Kit
+- `constructs`: AWS CDK の基本クラス
+- `aws_ec2`, `aws_iam`, `aws_lambda`: AWS CDK の各サービスのコンストラクト
+- `subprocess`: コマンドラインプログラムの実行
+- `os`: オペレーティングシステム機能へのポータブルな方法でアクセスする
+- `typing`: 型ヒントのサポート
 
 ## エラー処理の方法
 
-特に明示的なエラー処理は行われていませんが、AWS CDK のライブラリによってエラーがハンドリングされます。
+明示的なエラー処理は記述されていません。AWS CDK の例外処理に従います。
+
+</Template>

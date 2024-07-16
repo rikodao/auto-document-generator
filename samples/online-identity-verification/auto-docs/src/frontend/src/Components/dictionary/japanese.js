@@ -1,27 +1,33 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/src/Components/dictionary/japanese.js
+
+<Template>
 ## ファイル概要
 
-このファイルは、ウェブアプリケーションのライブネスチェック機能で使用される日本語のテキストリソースを提供しています。ライブネスチェックとは、ユーザーが生きている人間であることを確認するプロセスです。
+このファイルは、日本語のユーザーインターフェイス文字列を含むオブジェクトをエクスポートしています。これらの文字列は、ユーザーの生体認証プロセス中に表示されるさまざまなメッセージやヒントに使用されます。
+defaultErrorDisplayText.jsからエラーメッセージも読み込んでいます。
 
 ## 主要なサブルーチン
 
-このファイルには関数は含まれていません。代わりに、オブジェクトリテラルとして表現された日本語のテキストリソースが含まれています。
+このファイルには、サブルーチンは含まれていません。
 
 ## データ構造
 
-`japaneseLivenessDisplayText` オブジェクトは、キーと値のペアで構成されたオブジェクトです。キーは文字列で、値は文字列またはデフォルトのエラーテキストをインポートした `defaultErrorDisplayText` オブジェクトからの参照です。
+japaneseLivenessDisplayTextという名前のオブジェクトが定義されており、キーと値のペアを含んでいます。キーは文字列で、値も文字列です。
 
 ## 主要なアルゴリズム
 
-特筆すべきアルゴリズムはありません。
+特別なアルゴリズムはありません。
 
 ## 入出力
 
-このファイルは、`./defaultErrorDisplayText.js` ファイルから `defaultErrorDisplayText` オブジェクトをインポートしています。出力は、`japaneseLivenessDisplayText` オブジェクトがエクスポートされます。
+このファイルには入出力はありません。ただし、defaultErrorDisplayText.jsからデフォルトのエラーメッセージを読み込んでいます。
 
 ## 利用している外部モジュールやライブラリの説明
 
-外部モジュールやライブラリは使用されていません。
+defaultErrorDisplayText.jsというモジュールをrequireしています。
 
 ## エラー処理の方法
 
-エラー処理の方法は明記されていません。
+このファイル自体にはエラー処理のロジックはありませんが、読み込んでいるdefaultErrorDisplayText.jsにエラーメッセージが含まれている可能性があります。
+
+</Template>

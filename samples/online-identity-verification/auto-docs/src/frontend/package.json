@@ -1,40 +1,43 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/src/frontend/package.json
+
 <Template>
 ## ファイル概要
 
-このファイルは、リアクト(React)アプリケーションの設定ファイル(package.json)です。アプリケーションのメタデータ、依存関係、スクリプトコマンドなどが定義されています。
-関連するモジュールやパッケージは、"dependencies"と"devDependencies"に記載されています。
+このファイルはReactアプリケーションのパッケージ管理ファイル(package.json)です。
+アプリケーションの依存関係、スクリプト、コンパイル設定などが記述されています。
 
 ## 主要なサブルーチン
 
-このファイルは設定ファイルなので、サブルーチンはありません。
+該当なし(パッケージ管理ファイルのため)
 
 ## データ構造
 
-オブジェクト形式で以下のデータが格納されています。
+オブジェクト形式で以下のプロパティが定義されています。
 - name: アプリケーション名
-- version: バージョン番号
-- private: パッケージがプライベートかどうかのフラグ
-- dependencies: 実行時に必要な依存パッケージ
-- devDependencies: 開発時に必要な依存パッケージ 
-- scripts: npmスクリプトコマンド
+- version: アプリケーションのバージョン
+- private: パッケージがプライベートかどうか
+- dependencies: 本アプリケーションが依存するパッケージとバージョン
+- overrides: 特定のパッケージのバージョン上書き設定
+- scripts: npmスクリプトの定義
+- eslintConfig: ESLintの設定
+- browserslist: 対象ブラウザの設定
 
 ## 主要なアルゴリズム
 
-特にありません。
+該当なし
 
 ## 入出力
 
-このファイルは設定ファイルなので、入出力はありません。
+該当なし
 
 ## 利用している外部モジュールやライブラリの説明
-
-依存関係として以下のモジュールが利用されています。
-- react、react-dom: Reactコアライブラリ
-- aws-amplify: AWSproviderのサービスを利用するための中継ライブラリ
-- @aws-amplify/ui-react: AWSproviderのUIコンポーネント
-- react-webcam: Webカメラ機能を提供するReactコンポーネント
+以下のモジュールやライブラリが依存関係として記載されています。
+- @aws-amplify/ui-react: AWS AmplifyのReactコンポーネント
+- @aws-amplify/ui-react-liveness: AWS AmplifyのLivenessコンポーネント
+- react, react-dom: Reactコアライブラリ
+- react-scripts: Reactアプリケーションのビルドツール
+- react-webcam: WebカメラのReactコンポーネント
 
 ## エラー処理の方法
-特にありません。
-
+該当なし
 </Template>

@@ -1,48 +1,50 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/frontend/topology.py
+
+<Template>
 ## ファイル概要
 
-このコードは、AWS CDK (Cloud Development Kit) を使用して、Amplify アプリとそれに関連するリソースをデプロイするための構造を定義しています。主な機能は以下の通りです。
-
-- Amplify Web アプリケーションの作成とデプロイ
-- CodeCommit リポジトリの作成とソースコードのプッシュ
-- Amplify アプリにリンクされた Lambda 関数の作成
-- Amplify アプリのビルドトリガーと進捗状況の監視
-
-関連するモジュールやパッケージは、aws_cdk、constructs、infra.interfaces、infra.facelivenessbackend.gateway.topology、infra.frontend.cognito.topology などです。
+このコードは、AWS CDKを使用してAWS Amplifyアプリケーションとそれに関連するリソースをデプロイするための機能を提供しています。
+主要なモジュールとして、aws_cdk、aws_lambda、aws_codecommit、aws_amplify_alphaなどが使用されています。
 
 ## 主要なサブルーチン
 
-### FaceLivenessFrontEnd.__init__()
-- Amplify アプリを作成し、関連する環境変数を設定します。
-- CodeCommit リポジトリを作成し、フロントエンドのソースコードをプッシュします。
+- FaceLivenessFrontEnd
+  - AWSAmplifyアプリケーションを作成し、環境変数を設定します。
+  - 引数: scope, id, rfl_stack, apigateway, cognito
+  - グローバル変数: なし
 
-### TriggerFrontEndBuild.__init__()
-- Amplify アプリのビルドをトリガーするためのカスタムリソースを作成します。
+- TriggerFrontEndBuild  
+  - Amplifyアプリケーションのビルドを開始するカスタムリソースを作成します。
+  - 引数: scope, id, rfl_stack, amplifyApp
+  - グローバル変数: なし
 
-### FaceLivenessFrontEndBuildStatus.__init__()
-- Amplify アプリのビルド状況を監視するための Lambda 関数を作成します。
-- ビルド状況を取得するためのカスタムリソースを作成します。
-
-これらのサブルーチンでは、AWS CDK の各種リソースを作成し、設定を行っています。
+- FaceLivenessFrontEndBuildStatus
+  - Amplifyアプリケーションのビルド状況を監視するLambda関数とカスタムリソースを作成します。
+  - 引数: scope, id, rfl_stack, amplifyApp, buildTrigger  
+  - グローバル変数: なし
 
 ## データ構造
 
-特に明示的なデータ構造は定義されていません。AWS CDK のリソース定義とそのプロパティを使用しています。
+特に明示的なデータ構造は使用されていません。
 
 ## 主要なアルゴリズム
 
-特徴的なアルゴリズムは存在しません。AWS CDK を使ったリソース作成とデプロイのロジックが主体です。
+特徴的なアルゴリズムやロジックはありません。
 
 ## 入出力
 
-- 入力: フロントエンドのソースコードが `./src/frontend` ディレクトリから取得されます。
-- 出力: Amplify アプリとそれに関連するリソースがAWSにデプロイされます。
+- 入力: なし
+- 出力: Amplifyアプリケーションの環境変数としてAPIゲートウェイのURLが出力されます。
 
 ## 利用している外部モジュールやライブラリの説明
 
-- aws_cdk: AWS Cloud Development Kit のモジュール。AWSリソースの定義とデプロイを行うためのフレームワークです。
-- constructs: AWS CDK のベースクラスが定義されているモジュール。
-- infra.interfaces、infra.facelivenessbackend.gateway.topology、infra.frontend.cognito.topology: 他のモジュールからインポートされているクラスやインターフェイスです。
+- aws_cdk: AWS CDKを使用するためのモジュール
+- aws_lambda: AWS Lambdaリソースを作成するためのモジュール
+- aws_codecommit: AWS CodeCommitリポジトリを作成するためのモジュール
+- aws_amplify_alpha: AWS Amplifyアプリケーションを作成するためのモジュール
 
 ## エラー処理の方法
 
-明示的なエラー処理のロジックは含まれていません。AWS CDKとAWSサービスの動作に依存しています。
+特にエラー処理の記述はありません。
+
+</Template>

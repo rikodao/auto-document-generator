@@ -1,55 +1,58 @@
+ファイルパス: /Users/naotoiso/workspace/study/auto-document-generator/samples/online-identity-verification/infra/facelivenessbackend/functions/definitions.py
+
+<Template>
 ## ファイル概要
 
-このファイルは、AWS CDKを使用してAWS Lambda関数を定義するためのPythonコードです。FaceLivenessBackendFunctionクラスとそのサブクラスが定義されており、顔認証に関連する複数のLambda関数を表しています。関連するモジュールとしては、typing、infra、aws_cdk、constructsがインポートされています。
+このファイルは、AWS CDK を使用してAWS Lambdaリソースを定義するための Python クラスを定義しています。
+主に aws_cdk ライブラリと constructs ライブラリを使用しています。
 
 ## 主要なサブルーチン
 
-### FaceLivenessBackendFunction
-- `component_name`: このクラスのコンポーネント名を返すプロパティ
-- `function_name`: Lambda関数の名前を返すプロパティ
-- `function_timeout`: Lambda関数のタイムアウト時間を返すプロパティ
-- `__init__`: コンストラクタ。親クラスの初期化と、AmazonRekognitionFullAccessポリシーの割り当てを行う
+### FaceLivenessBackendFunction クラス
+- `component_name` プロパティ: ユーザーポータル Lambda 関数のコンポーネント名を返します。
+- `function_name` プロパティ: ユーザーポータル Lambda 関数の完全な名前を返します。
+- `function_timeout` プロパティ: Lambda 関数のタイムアウト時間を返します。
+- `__init__` メソッド: Lambda 関数を初期化し、必要な IAM ポリシーをアタッチします。
 
-### FaceLivenessStartLivenessSession
-- `source_directory`: ソースコードのディレクトリを返すプロパティ
-- `component_name`: コンポーネント名を返すプロパティ
+### FaceLivenessStartLivenessSession クラス
+- `source_directory` プロパティ: ソースコードのディレクトリを返します。
+- `component_name` プロパティ: コンポーネント名を返します。
 
-### FaceLivenessSessionResult 
-- `source_directory`: ソースコードのディレクトリを返すプロパティ
-- `component_name`: コンポーネント名を返すプロパティ
-- `__init__`: コンストラクタ。AmazonS3FullAccessポリシーの割り当てを行う
+### FaceLivenessSessionResult クラス
+- `source_directory` プロパティ: ソースコードのディレクトリを返します。
+- `component_name` プロパティ: コンポーネント名を返します。
+- `__init__` メソッド: AmazonS3FullAccess の IAM ポリシーをアタッチします。
 
-### UploadSignUrl
-- `source_directory`: ソースコードのディレクトリを返すプロパティ
-- `component_name`: コンポーネント名を返すプロパティ
-- `__init__`: コンストラクタ。AmazonS3FullAccessポリシーの割り当てを行う
+### UploadSignUrl クラス 
+- `source_directory` プロパティ: ソースコードのディレクトリを返します。
+- `component_name` プロパティ: コンポーネント名を返します。
+- `__init__` メソッド: AmazonS3FullAccess の IAM ポリシーをアタッチします。
 
-### GetComparefaceResult
-- `source_directory`: ソースコードのディレクトリを返すプロパティ
-- `component_name`: コンポーネント名を返すプロパティ 
-- `__init__`: コンストラクタ。AmazonS3FullAccessとAmazonRekognitionFullAccessポリシーの割り当てを行う
+### GetComparefaceResult クラス
+- `source_directory` プロパティ: ソースコードのディレクトリを返します。
+- `component_name` プロパティ: コンポーネント名を返します。
+- `__init__` メソッド: AmazonS3FullAccess と AmazonRekognitionFullAccess の IAM ポリシーをアタッチします。
 
 ## データ構造
 
-特に明示的なデータ構造は定義されていません。
+特に定義されたデータ構造はありません。
 
 ## 主要なアルゴリズム
 
-特徴的なアルゴリズムやロジックは含まれていません。
+特徴的なアルゴリズムやロジックは記述されていません。
 
 ## 入出力
 
-入力や出力に関する情報はありません。Lambda関数のコードは含まれていないためです。
+Lambda 関数の入出力は記述されていません。
 
 ## 利用している外部モジュールやライブラリの説明
 
-- typing: 型ヒントを提供するPythonの標準ライブラリ
-- infra.default_lambda: DefaultFunctionクラスをインポートしています
-- infra.interfaces: IRflStackインターフェースをインポートしています
-- aws_cdk: AWS Cloud Development KitのPythonライブラリ
-- constructs: AWS CDKのコア構造体
-- aws_iam: AWS IDENTITYアクセス管理のリソースを定義するモジュール
+- aws_cdk: AWS Cloud Development Kit (CDK) を使用するためのモジュール
+- constructs: AWS CDK で使用される基本的なコンストラクトを提供するモジュール
+- aws_iam: AWS Identity and Access Management (IAM) リソースを定義するためのモジュール
 
 ## エラー処理の方法
 
-エラー処理に関する情報はありません。
+エラー処理の方法は記述されていません。
+
+</Template>

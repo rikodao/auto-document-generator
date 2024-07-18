@@ -8,6 +8,6 @@ source .venv/bin/activate
 # How to run
 Set main.py and requirement.txt  to target directory 
 ```
-pip3 install -r requirement.txt
+pip3 install -r requirements.txt
 python3 main.py
 ```

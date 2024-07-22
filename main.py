@@ -158,7 +158,7 @@ def traverse_directory(directory, model_id, system_prompt, max_tokens, file_exte
 # 使用例
 current_dir = os.getcwd()
 model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
-file_extention=('.py', '.java', '.cpp', '.cc', '.cxx', '.c', '.cs', '.php', '.rb', '.js', '.ts', '.kt', '.swift', '.go', '.rs', '.pl', '.sh', '.vb', '.m', '.r', '.scala', '.hs', '.clj', '.ex', '.exs', '.fs', '.jl', '.lua', '.nim', '.html', '.htm', '.css', '.jsp', '.asp', '.aspx', '.csv', '.json', '.xml', '.sql')
+file_extention=('.py', '.java', '.cpp', '.cc', '.cxx', '.c', '.cs', '.php', '.rb', '.kt', '.swift', '.go', '.rs', '.pl', '.sh', '.vb', '.m', '.r', '.scala', '.hs', '.clj', '.ex', '.exs', '.fs', '.jl', '.lua', '.nim', '.jsp', '.asp', '.aspx', '.csv', '.json', '.xml', '.sql')
 system_prompt = """
 あなたは優秀なシステムエンジニアです。
 現在javascriptとpythonで書かれたシステムがあるのですが、知見がある人間が 全員退職してしまって、ソースコードを解き明かす必要があります。
